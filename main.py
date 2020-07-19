@@ -6,6 +6,8 @@ import requests
 import json
 app = Flask(__name__)
 
+lastSearched = []
+
 # Conversão de temperatura entre as unidades Kelvin, Celcius e Fahrenheit
 @app.route("/converte", methods=['POST'])
 def converte():
@@ -28,7 +30,8 @@ def converte():
 @app.route("/consulta/cep/<cep>", methods=['GET'])
 def consultarCep(cep):
     cepResponse = requests.get('https://api.postmon.com.br/v1/cep/' + cep).json()
-    return jsonify({"rua": cepResponse['logradouro'], "cidade": cepResponse['cidade'], "estado": cepResponse['estado']})
+    lastSearched.append(cep)
+    return jsonify({"rua": cepResponse['logradouro'], "cidade": cepResponse['cidade'], "estado": cepResponse['estado'], "ultimasPesquisas": lastSearched})
 
 if __name__ == "__main__":
     app.run()

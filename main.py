@@ -2,6 +2,7 @@
 # Desenvolver uma api escrita em python/flask que implemente funções de apoio para um suposto frontend.
 
 from flask import Flask, jsonify, request
+import requests
 import json
 app = Flask(__name__)
 
@@ -22,6 +23,12 @@ def converte():
         valorConvertido = valor - 273 if unidadeDestino == 'C' else (valor - 273) * 9/5 + 32
     
     return jsonify({"ValorConvertido": valorConvertido})
+
+# Consultar CEP de uma API externa (postmon)
+@app.route("/consulta/cep/<cep>", methods=['GET'])
+def consultarCep(cep):
+    cepResponse = requests.get('https://api.postmon.com.br/v1/cep/' + cep).json()
+    return jsonify({"rua": cepResponse['logradouro'], "cidade": cepResponse['cidade'], "estado": cepResponse['estado']})
 
 if __name__ == "__main__":
     app.run()

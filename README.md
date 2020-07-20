@@ -15,7 +15,7 @@ Para executar o projeto:
   - pip install flask para instalar os pacotes do flask
   - pip install requests para instalar os pacotes de requests
   - python main.py para executar a aplicação
-- A aplicação rodará no localhost, porta padrão 5000 (http://127.0.0.1:5000/)
+- A aplicação rodará no localhost, porta 5000 (http://127.0.0.1:5000/)
 - As requisições utilizadas para se comunicar com a API estão commitadas junto com o projeto, arquivo "api-python.postman_collection".
 
 Material consultado:

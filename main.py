@@ -34,4 +34,4 @@ def consultarCep(cep):
     return jsonify({"rua": cepResponse['logradouro'], "cidade": cepResponse['cidade'], "estado": cepResponse['estado'], "ultimasPesquisas": lastSearched})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port='5000')

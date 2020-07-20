@@ -17,3 +17,8 @@ Para executar o projeto:
   - python main.py para executar a aplicação
 - A aplicação rodará no localhost, porta padrão 5000 (http://127.0.0.1:5000/)
 - As requisições utilizadas para se comunicar com a API estão commitadas junto com o projeto, arquivo "api-python.postman_collection".
+
+Material consultado:
+- http://devfuria.com.br/python
+- https://www.dataquest.io/blog/python-api-tutorial/
+- https://rapidapi.com/blog/how-to-build-an-api-in-python/
